@@ -1,7 +1,17 @@
 @charset "UTF-8";
+body {
+  background-color: yellow;
+  background-image: url(bee_mark.png);
+  background-position: center;
+  background-attachment: local;
+  background-repeat: repeat-x;
+  background-size: 50px 44px;
+}
 .header {
-  border: 4px dotted silver;
-  background-color: gray;
+  background-color: black;
+  min-height: 180px;
+  margin: 0 auto 0;
+  padding: 5px;
 }
 .wrapper {
   float: left;
@@ -15,45 +25,48 @@
   margin-left: -200px;
 }
 .content_main {
+  display: block;
   position: relative;
   margin: 0 250px 0 200px;
-  background-color: yellow;
-  background-image: url(bee_mark.png);
-  background-position: right top;
-  background-repeat: repeat-x;
-  background-size: contain;
+  min-width: 320px;
+  max-width: 900px;
+}
+.content_main p {
+  max-width: 900px;
 }
 .l_sidebar {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   z-index: 5;
   float: left;
   width: 200px;
-  height: auto;
-  background-color: black;
+  min-height: 280px;
+  background-color: #555555;
   color: white;
   margin: 0 auto;
   padding: 0;
-  justify-content: center;
-  border-bottom: 4px dotted silver;
+  justify-content: flex-start;
 }
 .r_sidebar {
-  background-color: black;
+  display: flex;
+  flex-direction: column;
+  background-color: #333333;
   color: white;
   float: right;
   width: 240px;
-  height: auto;
+  min-height: 280px;
   padding: 0;
   margin: 0;
-  border-bottom: 4px dotted silver;
+  justify-content: flex-start;
 }
 .footer {
   clear: both;
-  margin-top: 0;
+  padding: 5px;
+  margin: 0 auto;
   color: black;
   text-align: center;
   display: block;
   background-color: silver;
-  border: 4px dotted gray;
 }
 body {
   background-color: yellow;
@@ -67,8 +80,8 @@ h1 {
   font-style: italic;
   font-size: 2.1em;
   line-height: 1.5em;
+  display: block;
   clear: both;
-  break-after: always;
   text-align: center;
   color: yellow;
 }
@@ -94,25 +107,76 @@ p {
   opacity: 0.6;
   border-radius: 40px;
 }
-@media (max-width:1280px) {
-  .wrapper, .content, .content_main, .r_sidebar {
+@media (max-width:1920px) {
+  body {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0 auto 0;
+    text-align: center;
+  }
+  .wrapper, .content {
+    display: block;
     float: none;
     margin: 0;
     width: auto;
     height: auto;
   }
-  .l_sidebar {
+  .content_main {
+    display: inline-block;
     float: left;
     margin: 0;
+    width: auto;
     height: auto;
+    justify-content: flex-start;
+  }
+  .r_sidebar {
+    display: inline-block;
+    float: right;
+    margin: 0;
+    justify-content: flex-start;
+  }
+  .l_sidebar {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    justify-content: flex-start;
   }
 }
 @media (max-width:800px) {
-  .wrapper, .content, .content_main, .l_sidebar {
-    float: none;
+  body {
+    width: 100%;
+    height: 70vh;
+    background-color: yellow;
+    }
+  .wrapper, .content {
+    display: flex;
+    flex-direction: column;
     margin; 0;
     width: auto;
+  }
+  .content_main {
+    display: flex;
+    flex-direction: column;
+    margin; 0;
+    width: auto;
+    background-image: url(bee_mark.png);
+    background-position: center;
+    background-attachment: local;
+    background-repeat: repeat-x;
+    background-size: 50px 44px;
+  }
+  .l_sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 5;
+    width: 100%;
     height: auto;
+    background-color: #555555;
+    color: white;
+    margin: 0 auto 20px;
+    padding: 0;
   }
   .r_sidebar {
     display: none;
